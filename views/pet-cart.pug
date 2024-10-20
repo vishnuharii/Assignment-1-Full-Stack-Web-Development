@@ -1,0 +1,39 @@
+extends common/layout 
+
+block main-content 
+  body
+      h1 #{pageTitle}
+      .container-fluid.mt-5
+        form(action="/")
+            button.btn.btn-dark.mb-5(type="submit") <- Back
+      table.table.table-striped.text-center
+        thead
+          tr
+            th Item
+            th Description
+            th Price
+            th Quantity 
+            th Total
+            th 
+        tbody
+          if cartItems.length > 0
+            each pet in cartItems 
+              tr
+                  td #{pet.name}
+                  td #{pet.description}
+                  td #{pet.price}
+                  td #{pet.quantity}
+                  td #{pet.price * pet.quantity}
+                  td 
+                    form(action="/pet/cart/list/remove", method="post")
+                      input(type="hidden", name="petId", value=pet._id)
+                      button.btn.btn-danger(type="submit") Remove  
+          else    
+            tr 
+              td Nothing to show
+        tfoot
+            tr
+              td(colspan="10") 
+                hr 
+                div Total: $#{totalPrice}
+      a.btn.btn-success(href="/") Proceed to Checkout

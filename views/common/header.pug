@@ -1,0 +1,15 @@
+header.sticky-header
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        .container-fluid 
+            a.navbar-brand.mb-0.h1(href="/")  Furry Friends Emporium
+
+            #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+                li.nav-item
+                    a.nav-link(href="/") Home
+                li.nav-item
+                    a.nav-link(href="/pet/add") Add
+                li.nav-item
+                    a.nav-link(href="/pet/cart/list") Cart&nbsp;
+                        span.badge.badge-light #{itemCount}
+                        

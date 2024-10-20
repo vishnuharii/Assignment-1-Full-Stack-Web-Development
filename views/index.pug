@@ -1,0 +1,32 @@
+extends common/layout 
+
+block main-content 
+  h1.page-title Welcome to Furry Friends Emporium.
+  h5.page-title Here you can find everything your pet needs.
+  p See Some of What We Have to Offer
+
+  table.table.table-striped.text-center
+    thead 
+        tr 
+            th Name 
+            th Description 
+            th Price 
+            th Action
+            th
+        tbody
+            each pet in petInfos 
+                tr 
+                    td  
+                        =pet.name
+                    td 
+                        =pet.description
+                    td 
+                        =pet.price 
+                    td 
+                        form(action="/pet/edit")
+                            input(type="hidden", name="petId", value=pet._id)
+                            button.btn.btn-dark(type="submit") Edit
+                    td
+                        form(action="/pet/cart", method="post")
+                            input(type="hidden", name="petId", value=pet._id)
+                            button.btn.btn-dark(type="submit") Add to cart

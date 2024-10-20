@@ -1,0 +1,20 @@
+extends common/layout 
+
+block main-content 
+  body
+    h1 #{pageTitle}
+    .container-fluid.mt-5
+        form(action="/")
+            button.btn.btn-dark.mb-5(type="submit") <- Back
+        div.col-md-8
+            form(action="/pet/add/submit", method="POST")
+                .form-group
+                    label(for="petName") Name
+                    input.form-control(type="text", id="petName", name="name", placeholder="Enter pet name" required)
+                .form-group
+                    label(for="petDescription") Description
+                    textarea.form-control(id="petDescription" , name="description", rows="3", placeholder="Enter pet description" required)
+                .form-group
+                    label(for="petPrice") Price
+                    input.form-control(type="number", min="0", step="0.01", id="petPrice", name="price", placeholder="Enter pet price" required)
+                button.btn.btn-dark(type="submit") Submit
