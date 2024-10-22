@@ -6,7 +6,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 
 //set up Express app
 const app = express();
-const port = process.env.PORT || 8888;
+const port = process.env.PORT || 8080;
 const dbUrl = process.env.DB_URL;
 const client = new MongoClient(dbUrl);
 
