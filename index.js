@@ -6,7 +6,10 @@ const { MongoClient, ObjectId } = require("mongodb");
 
 //set up Express app
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080; // Default to 8080 if PORT is not set
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Listening on http://0.0.0.0:${port}`);
+});
 const dbUrl = process.env.DB_URL;
 const client = new MongoClient(dbUrl);
 
