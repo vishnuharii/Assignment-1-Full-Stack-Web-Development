@@ -162,9 +162,10 @@ app.post("/pet/cart/list/remove", async (request, response)=>{
 });
 
 //set up server listening
-app.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}`);
-});
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Listening on http://0.0.0.0:${port}`);
+  });
+  
 
 //Database functions
 // Function to connect with databse 
