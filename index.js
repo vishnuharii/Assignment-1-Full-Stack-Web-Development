@@ -6,10 +6,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 
 //set up Express app
 const app = express();
-const port = process.env.PORT || 8080; // Default to 8080 if PORT is not set
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Listening on http://0.0.0.0:${port}`);
-});
+const port = process.env.PORT || 8888;
 const dbUrl = process.env.DB_URL;
 const client = new MongoClient(dbUrl);
 
@@ -165,10 +162,10 @@ app.post("/pet/cart/list/remove", async (request, response)=>{
 });
 
 //set up server listening
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Listening on http://0.0.0.0:${port}`);
-  });
-  
+app.listen(port, () => {
+  console.log(`Listening on http://localhost:${port}`);
+});
+
 
 //Database functions
 // Function to connect with databse 
